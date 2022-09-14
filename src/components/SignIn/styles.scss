@@ -1,0 +1,113 @@
+$customDarkerGray: #9b9b9b;
+$customDarkGray: #b8b8b8;
+$customLightGray: #d7d7d7;
+
+$footerHeight: 0px;
+$headerHeight: 6rem;
+$signInMargin: 4rem;
+
+
+.main-account{
+    // background: #f8f8f8;
+}
+.authWrapper{
+    .wrap{
+            // Neumorphism //
+            
+            // background: #fcfcfc;
+            // border-radius: 25px;
+            // box-shadow:  7.5px 7.5px 20px #eeeeee,
+                        // -7.5px -7.5px 20px #ffffff;
+        
+        .formWrap{
+    
+            .errorMessage{
+                color:red;
+            }
+            .socialSignin{
+                .row{
+                    .btn-google{
+                        background-color: white;
+                        border: 1px solid #{$customDarkerGray};
+                        color: black;
+                    }
+                    .btn-google:hover{
+                        background-color: #fa2d1a0c;
+                        border: 2px solid #fa2d1a2c;
+                        color:#fa2d1a;
+                    }
+        
+                    .btn-apple{
+                        background-color: black;
+                        
+                        color: white;
+                    }
+        
+                    .btn-apple:hover{
+                        background-color: #8b8b8b;
+                        
+                    }
+        
+                    .btn-facebook{
+                        background-color: white;
+                        border: 1px solid #{$customDarkerGray};
+                        color: black;
+                    }
+                    .btn-facebook:hover{
+                        background-color: #177af20c;
+                        border: 2px solid #177af22c;
+                        color:#177af2;
+                        
+                    }
+                }
+        
+            }
+            .or-tag{
+                align-items: center;
+                text-align: center;
+                font-weight: 700;
+                font-size: 1.75rem;
+                padding: 1rem 0;
+                color: #{$customDarkerGray}
+            }
+            .or-tag:before{
+                content: "";
+                display: inline-flex;
+                height: 0.5em;
+                vertical-align: bottom;
+                width: calc(50% - 2.15rem);
+                margin-left: -100%;
+                margin-right: 10px;
+                border-top: 1px solid black;
+            }
+            .or-tag:after{
+                content: "";
+                display: inline-flex;
+                height: 0.5em;
+                vertical-align: bottom;
+                width: calc(50% - 2.15rem);
+                margin-right: -100%;
+                margin-left: 10px;
+                border-top: 1px solid black;
+            }
+        
+        
+            .resetPassword{
+                text-align:  right;
+                padding: 1rem 0 1.5rem 0;
+                font-size: 1.45rem;
+                a, a:visited{
+                    color: #{$customDarkGray}
+                }
+                a:hover{
+                    text-decoration: underline;
+                }
+            }
+            .cancel{
+                padding: 0.75rem 0rem;
+            }
+            
+        }
+    }
+    
+}

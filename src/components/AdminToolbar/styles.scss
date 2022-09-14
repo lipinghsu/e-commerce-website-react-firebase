@@ -1,0 +1,43 @@
+.adminToolbar{
+    display: inline-block;
+    width:100%;
+    background-color: white;
+    height: auto;
+    margin: 0 auto;
+    // padding: 0 3.5rem;
+    
+    font-weight: 700;
+
+    ul, li{
+        list-style-type: none;
+        margin: 0;
+        // padding: 0;
+    }
+
+    ul{
+        // this cause extra space att the bottom tf the div
+        // float: left;
+
+        li{
+            display: inline-block;
+            border-radius: 16px;
+            a{
+                display: block;
+                font-size: 1.6rem;
+                line-height: 1;
+                color: black;
+                padding: 10px;
+                transition: all .25s ease-in-out;
+            }
+                
+
+            a:hover{
+                color: darkgray;
+                transition: all .25s ease-in-out;
+            }
+            // a:visited{
+            //     color:black
+            // }
+        }
+    }
+}

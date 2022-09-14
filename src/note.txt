@@ -1,0 +1,65 @@
+issues-frontend:
+    - load more button is still shown when the last page totalCount == pageSize
+
+    - /cart layout not perfect when screen resizes (hard-coded)
+
+
+issues-backend:
+    - /admin inaccessible with admin account by entering url
+
+    - hitting refresh or log out at order/:orderNumber will crash the app
+
+    - "/dashboard" -> refresh  -> "/login" (user not logged in) -> "/" (then user is logged in)
+        bc of withAdminAuth.js?
+
+    - sign in status at header takes a few milliseconds to load when page is refreshed
+
+    - if the uploaded image is edited, file size is !AT LEAST! 3 times larger.
+    
+    - uploaded image cannot be edited more than once.
+
+
+to-do:
+- user
+
+    (check out)
+    -information
+        - validate and autofill address
+        - validate and format phone input
+        - state selector
+        - limit country option
+        
+    -shipping
+        - calculate tax and shipping
+    -payment
+        - add other payment methods (paypal, googlePay, applePay)
+
+    (product detail)
+    - click on terms link will go to .../product/terms
+    - redesign font matching
+
+    (header)
+    - logo should be bigger and thicker than icons
+
+    (product result)
+    - there is a delay when mouseOver first triggered.
+
+    (upload item)
+    - add item quantity for each size. -> decrement the value when purchase complete -> disable size button if sold out -> add sold out overlay if all size are sold out
+
+
+- admin
+    (admin)
+    - restrict user to upload max 10 files at once
+    - limit file size to 30MB
+    - add confirmation modal for delete button
+
+    (upload item)
+    - add drag and drop function
+    - crop image to square size before upload
+    - allow user to select thumbnail if multiple images are selected
+    
+
+    (sign in)
+    - facebook sign in not completed.
+    - sign in with goolge -> user will be logged in, but not in the database -> needs to sign up user if not in database

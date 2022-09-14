@@ -1,0 +1,44 @@
+.button-group-container{
+    display: flex;
+    overflow: hidden;
+    margin: 5px 0px;
+    justify-content: left;
+    align-items: center;
+
+    // border: 1px solid black;
+    // width: 222px;
+    border-radius: 5px;
+    .button-container:first-child{
+        padding: 0.25rem 0.75rem 0.25rem 0rem;
+    }
+    .button-container{
+        padding: 0.25rem 0.75rem;
+        cursor: pointer;
+        
+        .button{
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 0px;
+            background-color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-weight: 600;
+            font-size: 1.5rem;
+            transition: 0.25s ease-out;
+        }
+        .button:hover{
+            background-color: black;
+            color:white;
+            transition: 0.25s ease-in-out;
+        }
+        .button.active{
+            background-color: black;
+            color:white;
+        }
+    }
+}
+

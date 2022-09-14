@@ -1,0 +1,32 @@
+.about{
+    .about-wrap{
+        // padding: 128px 128px;
+        .image-container{
+            width: 100%;
+            img{
+                width: 100%;
+                // min-height: 1040px;
+                object-fit: cover;
+                object-position: 0 0;
+                @media (max-width:1040px) {
+                    min-height: 0;
+                    
+                    object-fit: contain;
+                }
+            }
+
+        }
+        .text-content-wrap{
+            padding: 16px 36px;
+            @media (max-width: 840px){
+                padding: 16px 24px;
+            }
+            .text-content{
+                font-size: 1.8rem;
+                // font-weight: 500;
+            }
+        }
+
+    }
+    
+}

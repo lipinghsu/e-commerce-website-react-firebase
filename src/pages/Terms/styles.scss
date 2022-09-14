@@ -1,0 +1,14 @@
+.terms{
+    padding: 32px 32px;
+    .terms-detail{
+        width: 100%;
+        height: 100%;
+        text-align: left;
+    }
+    width: 100%;
+    height: 100%;
+    justify-content: left;
+    @media (max-width: 840px){
+        padding: 16px 24px;
+    }
+}

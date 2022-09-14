@@ -1,0 +1,52 @@
+$customDarkerGray: #9b9b9b;
+$customDarkGray: #b8b8b8;
+$customLightGray: #d7d7d7;
+
+$footerHeight: 0px;
+$headerHeight: 6rem;
+$signInMargin: 4rem;
+
+// dont have an account? Sign up here
+
+.authWrapper{
+    .wrap{
+        h3{
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.75rem;
+        
+            margin: 0.75rem auto;
+            
+            padding:0 0 0.75rem 0;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            a, a:visited{
+                color: rgba($color: #b8b8b8, $alpha: 1.0);
+            }
+            a:hover{
+                color:black;
+                text-decoration: underline;
+            }
+        }
+
+
+        .formWrap{
+            form{
+                .terms{
+                    text-align:  center;
+                    padding: 1rem 0 1.5rem 0;
+                    font-size: 1.45rem;
+                    a, a:visited{
+                        color: #{$customDarkGray}
+                    }
+                    a:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+

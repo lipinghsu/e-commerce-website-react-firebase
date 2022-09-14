@@ -1,0 +1,60 @@
+
+
+  
+  .cropper {
+    // position: relative;
+
+    
+    .container{
+        // position: relative;
+        // width:calc(100%);
+        // overflow: hidden;
+        
+        img{
+            
+            // max-height: 20px !important;
+        }
+        .reactEasyCrop_CropArea,.reactEasyCrop_CropAreaGrid{
+            // width: 100% !important;
+            // height: 100% !important;
+        }
+    }
+}
+
+.viewer {
+// height: 50vh;
+display: flex;
+// align-items: center;
+// justify-content: center;
+}
+
+.output {
+position: relative;
+width: 300px;
+overflow: hidden;
+box-shadow: 0 0 32px rgba(0, 0, 0, 0.3);
+}
+
+.output img {
+position: absolute;
+top: 0;
+left: 0;
+transform-origin: top left;
+}
+
+
+
+
+.dialog-actions{
+    position:absolute;
+    bottom: 47px;
+    background-color: rgba(0, 0, 0, 0.696);
+    margin: 15px;
+    border-radius: 16px;
+    .outer-box{
+        border-radius: 12px;
+        // background-color: cyan;
+        bottom: 0;
+        padding: 0 8px;
+    }
+}

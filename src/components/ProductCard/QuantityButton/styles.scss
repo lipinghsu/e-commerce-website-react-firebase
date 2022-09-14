@@ -1,0 +1,63 @@
+.quantity-input{
+    // max-width: 160px;
+    width: 100%;
+    height: 38px;
+    border-radius: 19px;
+    border: 1px solid black;
+
+    margin: 3px auto;
+    display: inline-flex;
+
+    .dec-button, .inc-button{
+        // background-color: black;
+        padding: 0 7px;
+        // background-color: #eeeeeedd;
+        cursor: pointer;
+        .closeImage{
+            margin: 7.5px auto;
+            height: 20px !important;
+            width: 20px !important;
+            // border-radius: 50%;
+        }
+        .closeImage:hover{
+            // background-color: #eeeeeedd;
+        }
+    }
+    .dec-button{
+        border-radius: 50% 0% 0% 50%;
+        transition: 0.25s ease-in-out;
+    }
+    .inc-button{
+        border-radius: 0% 50% 50% 0%;
+        transition: 0.25s ease-in-out;
+    }
+    .dec-button:hover{
+        background-color: #eeeeeedd;
+        transition: 0.25s ease-in-out;
+    }
+    .inc-button:hover{
+        background-color: #eeeeeedd;
+        transition: 0.25s ease-in-out;
+    }
+    .formRow{
+        margin: 0 auto;
+        bottom: 50%;
+        width: 64px;
+        height: 68px;
+        .formInput{
+            padding-top: 3px;
+            text-align: center;
+            border: 0px;
+            background-color: transparent;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+        input{
+            // height: px;;
+        }
+        input:active, input:focus{
+            background-color: #ffffffbb;
+            border: 2px solid rgba(0, 0, 0, 0.42069);
+        }
+    }
+}

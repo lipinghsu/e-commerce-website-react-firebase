@@ -1,0 +1,110 @@
+.admin {
+    padding: 0 10px;
+
+    .callToActions {
+        display: inline-block;
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+        
+        ul, li {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        
+        }
+
+        ul {
+            li {
+                display: inline-block;
+                button{
+                    
+                    background-color: black;
+                    width: 256px;
+                }
+            }
+        }
+    }
+    
+} 
+
+.manageProducts{
+    table{
+        width:100%;
+        th{
+            padding-top: 1.25rem;
+            padding-bottom: 2.5rem;
+            text-align: left;
+            font-size: 2.2rem;
+        }
+
+        table{
+            tr{
+                tr{
+                    td{
+                        width: 100%;
+                    }
+                    .td-thumbnail, .td-product-details, .td-button{
+                        border-bottom: 1.25px solid gray;
+                        
+                    }
+
+                    .td-thumbnail{
+                        width: 13.2rem;
+                        height: 13.2rem;
+                    }
+                    .thumb{
+                        height: 13.0rem;
+                        width: 13.0rem;
+                        margin: 0 auto;
+                        
+                        
+                    }
+                    .td-product-details{
+                        overflow: hidden;
+                        position: relative;
+                        vertical-align:top;
+                        .box-product-details{
+                            position: relative;
+                            display: flex;
+                            flex-direction: column;
+                            
+                            div {
+                                padding: 2px 0;
+                            }
+
+                            .title{
+                                font-size: 1.8rem;
+                                font-weight: 600;
+                            }
+                            .price{
+                                font-size: 1.6rem;
+                            }
+
+                        }
+                        
+                    }
+                    .td-button{
+                        width: 120px;
+                        .btn-delete{
+                            background-color: black !important;
+                            width: 100px;
+                        }
+                    }
+
+                }
+            }
+        }
+        table.results{
+            
+            tr{
+                // background-color: pink;
+                &:nth-child(even){
+                    // background-color: #d3d3d3;
+                    
+                }
+
+            }
+        }
+    }   
+}

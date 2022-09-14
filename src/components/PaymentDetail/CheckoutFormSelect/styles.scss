@@ -1,0 +1,55 @@
+$customDarkerGray: #505050;
+$customDarkGray: #888888;
+$customLightGray: #bbbbbb;
+
+.formRow-select-checkout {
+    display: inline-block;
+    width: 100%;
+
+    .form-select-label {
+        display: block;
+        width: 100%;
+        text-align: left;
+        font-size: 1.5rem;
+
+        transform: translate(0px, -5px) scale(1);
+        position: absolute;
+        
+        font-weight: 700;
+        color: black;
+    }
+
+    select {
+        height: 48px;
+        width: 100%;
+        display: block;
+        
+        color:black;
+        font-size: 1.75rem;
+        font-weight: 300;
+        line-height: 1;
+        
+        border: 1.5px #{$customDarkerGray} solid;
+        border-radius: 4px;
+        
+        padding: 0.75rem 0.25rem;
+        margin: 1rem auto;
+        outline: none;
+    }
+    select:active, select:focus{
+        outline: 1px solid black;
+    }
+
+    option{
+    }
+    .select-wrapper {
+        position: relative;
+    }
+    // .select-wrapper::after {
+    //     content: "▼";
+    //     font-size: 1rem;
+    //     top: 24px;
+    //     right: 10px;
+    //     position: absolute;
+    // }
+} 
