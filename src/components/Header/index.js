@@ -11,7 +11,7 @@ import NavItem from './NavItem';
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { TbMenu2 } from "react-icons/tb";
 import { CgClose } from "react-icons/cg";
-import Logo from '../../assets/meihua.png';
+import Logo from '../../assets/meihuared.png';
 import DefaultUserImage from '../../assets/user2-w.png';
 import SideMenuDefaultUserImage from '../../assets/account_circle.png';
 

@@ -33,16 +33,15 @@ const Item = ({setIsLoading, ...product}) => {
     }
 
     useEffect(() => {
+        // to do:
         // disable check out button and formInput
         // show loading animation
         // if quantityValue > stockValue -> show error message
         let timerId = setTimeout(() => {
             handleUpdateCart(product, quantityValue)
-        }, 3800);
+        }, 380);
         return () => {
             clearTimeout(timerId)
-            
-
         };
     }, [quantityValue]);
 
@@ -68,7 +67,6 @@ const Item = ({setIsLoading, ...product}) => {
             {/* </div> */}
             <div className="buttons">
                 <QuantityButton setQuantityValue={setQuantityValue} quantityValue={quantityValue} setIsLoading={setIsLoading}/>
-
                 {/* onclick -> show modal -> confirm delete? -> delete*/}
                 <div className="container-remove-button"  onClick={() => handleRemoveCartItem(product)}>
                     <span className="remove-btn">

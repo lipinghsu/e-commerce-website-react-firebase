@@ -2,6 +2,7 @@ import React, { useEffect, Suspense, useTransition } from 'react';
 import { useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import { checkUserSession } from './redux/User/user.actions';
+import Logo from './assets/meihua3red.png';
 
 // components
 import AdminToolbar from './components/AdminToolbar';
@@ -39,6 +40,26 @@ import './default.scss';
 import DashBoardLayout from './layouts/DashboardLayout';
 import AdminLayout from './layouts/AdminLayout';
 
+function FallbackComponent() {
+  const [showImage, setShowImage] = React.useState(false);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowImage(true);
+    }, 2000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
+  if (showImage) {
+    return <img src={Logo} className='fallback centered-image' />;
+  } else {
+    return null; // Or you can return a loading spinner or placeholder
+  }
+}
+
 const App = props => {
   const dispatch = useDispatch();
   
@@ -49,7 +70,8 @@ const App = props => {
   }, [])
 
   return (
-    <Suspense fallback="Loading...">
+    <Suspense fallback={<img src={Logo} className='fallback centered-image'/>}>
+
       <div className="App">
         <AdminToolbar></AdminToolbar>
         <Switch>
@@ -149,11 +171,10 @@ const App = props => {
               </MainLayout>
             </WithAdminAuth>
           )} />
-
           
           </Switch>
       </div>
-      </Suspense>
+    </Suspense>
   );
   
 };

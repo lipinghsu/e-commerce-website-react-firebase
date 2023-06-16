@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Button from '../forms/Button'; 
 import CheckoutFormInput from './CheckoutFormInput';
 
-import logoImage from "../../../src/assets/meihua.png";
+import logoImage from "../../../src/assets/meihuared.png";
 import navigatePrevImage from "../../../src/assets/navigate_before.png"
 
 import { Link, useHistory } from 'react-router-dom';
@@ -287,7 +287,7 @@ const PaymentDetails = () => {
                             handleChange={e => handleShippingAddress(e)}
                         />
                         <div className='flex-container'>
-                            { !shippingAddress.country || shippingAddress.country == "US" ? <>
+                            { !shippingAddress.country || shippingAddress.country === "US" ? <>
                             <CheckoutFormInput 
                                 label={t("City")}
                                 type="text"
@@ -306,7 +306,7 @@ const PaymentDetails = () => {
                             /> */}
                             <div className="formRow checkoutInput">
                                 <div className="country-label">
-                                    {t(!shippingAddress.country || shippingAddress.country == "US" ? "State": "City")}
+                                    {t(!shippingAddress.country || shippingAddress.country === "US" ? "State": "City")}
                                 </div>
                                 <RegionDropdown 
                                     country={shippingAddress.country}
@@ -325,7 +325,7 @@ const PaymentDetails = () => {
                             </>
                             :  <div className="formRow checkoutInput">
                                 <div className="country-label">
-                                    {t(!shippingAddress.country || shippingAddress.country == "US" ? "State": "City")}
+                                    {t(!shippingAddress.country || shippingAddress.country === "US" ? "State": "City")}
                                 </div>
                                 <RegionDropdown 
                                     country={shippingAddress.country}

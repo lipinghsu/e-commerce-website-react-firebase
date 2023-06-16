@@ -17,6 +17,19 @@
 
 
         .cart{
+            .empty-cart{
+                padding-top: 28rem;
+                text-align: center;
+
+                .empty-message{
+                    
+                }
+                .continue-shopping{
+                    max-width: 300px;
+                    padding-top: 20px;
+                    margin: 0px auto;
+                }
+            }
 
             // border: 1px solid red;
             justify-content: center;

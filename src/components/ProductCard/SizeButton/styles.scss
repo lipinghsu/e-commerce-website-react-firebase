@@ -16,7 +16,7 @@
         cursor: pointer;
         
         .button{
-            
+            border: 1px solid lightgray;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -31,11 +31,13 @@
             transition: 0.25s ease-out;
         }
         .button:hover{
-            background-color: black;
+            border: none;
+        background-color: rgba(50, 50, 50, 0.9);
             color:white;
             transition: 0.25s ease-in-out;
         }
         .button.active{
+            border: none;
             background-color: black;
             color:white;
         }

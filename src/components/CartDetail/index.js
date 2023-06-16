@@ -104,10 +104,15 @@ const CartDetail = ({}) =>{
                         </div>
                     </div>
                 ) : (
-                    <div>
-                        <p>
+                    <div className="empty-cart">
+                        <div className="empty-message">
                             {EmptyCartMessage}
-                        </p>
+                        </div>
+                        <div className="continue-shopping">
+                            <Button onClick={() => history.goBack()}>
+                                {t("Continue Shopping")}
+                            </Button>
+                        </div>
                     </div>
                 )}
                 </div>
