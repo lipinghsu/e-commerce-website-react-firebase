@@ -8,9 +8,9 @@ import { selectCartItemsCount } from '../../redux/Cart/cart.selectors';
 import DropdownMenu from './DropdownMenu';
 import NavItem from './NavItem';
 
-import { MdOutlineShoppingBag } from "react-icons/md";
+import { HiOutlineShoppingBag } from "react-icons/hi";
 import { TbMenu2 } from "react-icons/tb";
-import { CgClose } from "react-icons/cg";
+import { TbX } from "react-icons/tb";
 import Logo from '../../assets/meihuared.png';
 import DefaultUserImage from '../../assets/user2-w.png';
 import SideMenuDefaultUserImage from '../../assets/account_circle.png';
@@ -122,8 +122,8 @@ const Header = props =>{
                 {mobile &&
                 <div className="sideMenu"> 
                     <a>{!sidebar ?
-                        <TbMenu2 size={28} onClick={() => setSidebar(!sidebar)} color={"black"}/> : //stroke-width="0.01"
-                        <CgClose size={28} onClick={() => setSidebar(!sidebar)} color={"black"}/>
+                        <TbMenu2 size={28} onClick={() => setSidebar(!sidebar)} color={"black"} strokeWidth={"1"}/> : //stroke-width="0.01"
+                        <TbX size={28} onClick={() => setSidebar(!sidebar)} color={"black"} strokeWidth={"1"}/>
                     }
                     </a>
                 </div>
@@ -160,7 +160,7 @@ const Header = props =>{
                         <ul>
                             <li className="nav-item">
                                 <Link to= {'/cart'}>
-                                    <MdOutlineShoppingBag size={28} color={"black"}/>
+                                    <HiOutlineShoppingBag size={28} color={"black"} strokeWidth={"1"}/>
                                     {totalNumCartItems > 0 &&
                                         <div className='cart-item-number'>{totalNumCartItems}</div>
                                     }

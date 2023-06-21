@@ -105,9 +105,14 @@
                         top:20px;
                         bottom:0;
                         width:10%;
+                        scale: 0.5;
+                        
                         // background-repeat: no-repeat;
                         // background-size: 100% auto;
                         // background-position: center;
+                    }
+                    .swiper-button-prev:hover, .swiper-button-next:hover{
+                        color: rgba(0,0,0,0.75);
                     }
                 }
                 // .product-images-slider:hover{
