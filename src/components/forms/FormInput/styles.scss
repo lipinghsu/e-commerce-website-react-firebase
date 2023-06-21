@@ -52,7 +52,11 @@ $customLightGray: #bbbbbb;
         -webkit-box-shadow: 0 0 0 30px white inset !important;
         
     }
-
+    input:hover{
+        border: 2px solid #{$customDarkGray};
+        transition: none;
+        
+    }
     input:active, input:focus{
         border: 2px solid black;
         transition: 0.25s ease-in;
@@ -95,4 +99,3 @@ $customLightGray: #bbbbbb;
     transition: 0.25s ease-out;
     width:100%;
 }
-

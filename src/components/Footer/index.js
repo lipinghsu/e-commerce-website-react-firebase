@@ -110,16 +110,10 @@ const Footer = props => {
                 <div className="box-container">
                     <div className="box-bottom">
                         <div className="content-wrapper">
-                            <h>© Büshka 2022</h> 
+                            <h>© Büshka 2023</h> 
                             <Link to= "terms">
                                 {t("Terms & Privacy")}
                             </Link>
-                            {/* <a name ="language" onClick={languageChange} value={"en"}>
-                                English
-                            </a> 
-                            <a name ="language" onClick={languageChange} value={"tw"}>
-                                繁體中文
-                            </a>  */}
                             <select 
                                 name ="language" 
                                 onChange={languageChange}
@@ -129,9 +123,6 @@ const Footer = props => {
                                 <option value= "tw">繁體中文</option>
                             </select>
                         </div>
-                        {/* <div className='lauguage-options'> */}
-                            
-                        {/* </div> */}
                     </div>
                 </div>
             </div>

@@ -12,9 +12,6 @@ import Item from "./Item";
 import { useTranslation } from "react-i18next";
 import './styles.scss';
 
-// i dont have quantity value here
-// isLoading have trouble being fetched to Item
-
 const mapState = createStructuredSelector({
     cartItems: selectCartItems,
     subtotal: selectCartTotal
@@ -109,7 +106,7 @@ const CartDetail = ({}) =>{
                             {EmptyCartMessage}
                         </div>
                         <div className="continue-shopping">
-                            <Button onClick={() => history.goBack()}>
+                            <Button onClick={() => history.goBack()} className="btn btn-submit">
                                 {t("Continue Shopping")}
                             </Button>
                         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.scss';
 import userIMG from './../../assets/user.png';
-import logo from './../../assets/mh-rpk-tp-black.png';
+import logo from './../../assets/meihuared.png';
 const UserProfile = props => {
     const { currentUser } = props;
     const { firstName } = currentUser;

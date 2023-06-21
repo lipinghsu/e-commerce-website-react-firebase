@@ -1,7 +1,4 @@
 import React, {useEffect} from 'react';
-import LogoW from '../../assets/boxlogo.png'; 
-import Logo from '../../assets/mh-rpk-tp-white.png';
-import thePicture from '../../assets/barcode.png';
 import { Link } from 'react-router-dom';
 
 import './styles.scss';

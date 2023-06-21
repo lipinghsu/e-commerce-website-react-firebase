@@ -14,7 +14,7 @@ i18n.use(Backend).use(LanguageDetector).use(initReactI18next).init({
 
     // you can have multiple namespaces, 
     // in case you want to divide a huge translation into smaller pieces and load them on demand
-    ns: ["common", "header", "login", "signup", "recovery", "footer", "productCard"],
+    ns: ["common", "header", "login", "signup", "recovery", "footer", "productCard", "about"],
 
     interpolation:{
         escapeValue: false,

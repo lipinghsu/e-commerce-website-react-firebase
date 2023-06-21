@@ -21,7 +21,7 @@
         cursor: pointer;
     }
     .btn:hover{
-        transition: 0.25s ease-out;
+        // transition: 0.25s ease-out;
     }
     .btn.btn-submit.isLoading{
         background-color: rgba(23, 23, 23, 0.25);
@@ -32,5 +32,5 @@
         max-width: 80.0rem;
     }
     .btn-submit:hover{
-        background-color: rgba(23, 23, 23, 0.87);
+        scale: 1.01;
     }

@@ -9,13 +9,13 @@ const Product = (product) => {
     if(!documentID || !productThumbnail || !productName || typeof productPrice === 'undefined' || !downloadUrls){
         return null;
     }
-    const hoverImage = downloadUrls && downloadUrls.length > 1 ? downloadUrls[1] : productThumbnail;
+    const hoverImage = (downloadUrls && downloadUrls.length > 1) ? downloadUrls[1] : productThumbnail;
     return (
         <div className="product">
             <div className="thumbnail">
                 <Link to={`/product/${documentID}`}>
                     <img src={productThumbnail} alt={productName} 
-                    onMouseOver={e => {(e.currentTarget.src = hoverImage); console.log(e)}}
+                    onMouseOver={e => {(e.currentTarget.src = hoverImage)}}
                     onMouseOut={e => (e.currentTarget.src = productThumbnail)}/>
                 </Link>
             </div>

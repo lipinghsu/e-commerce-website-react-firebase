@@ -84,6 +84,16 @@
                 form{
                     width: 100%;
                     display: inline-flex;
+                    .formRow .filled {
+                        transform: translate(0px, 0px) scale(1) !important;
+                        position: absolute;
+                        
+                        font-weight: 700;
+                        color: black;
+                        font-size: 1.5rem !important;
+                        transition: 0.25s ease-out;
+                        width:100%;
+                    }
                     .formRow{
                         width: 100%;
                         // border: 1px solid gold;
