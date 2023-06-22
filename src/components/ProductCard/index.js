@@ -5,13 +5,12 @@ import { fetchProductStart, setProduct } from "../../redux/Products/products.act
 import { addProduct } from "../../redux/Cart/cart.actions";
 import { useTranslation } from "react-i18next";
 
+import Accordion from "./Accordion";
 import Button from "../forms/Button";
 import SizeButton from "./SizeButton";
-import Notification from "../Notification";
-import ProductImageSlider from "./ProductImagesSlider";
-import Accordion from "./Accordion";
+import CartDrawer from "../CartDrawer";
 import QuantityButton from "./QuantityButton";
-import { FcCheckmark } from "react-icons/fc";
+import ProductImageSlider from "./ProductImagesSlider";
 
 import 'swiper/css'
 import 'swiper/css/navigation';
@@ -23,6 +22,7 @@ const mapState = state => ({
     productLoaded: state.productsData.product.productLoaded
 });
 
+
 const addZeroes = num => Number(num).toFixed(Math.max(num.split('.')[1]?.length, 2) || 2)
 
 const ProductCard = ({}) => {
@@ -30,7 +30,7 @@ const ProductCard = ({}) => {
     const boxRightRef = useRef();
     const movingDivRef = useRef();
     const descriptionTextRef = useRef();
-
+    
     const dispatch = useDispatch();
     const { productID } = useParams();
     const { product } = useSelector(mapState);
@@ -54,7 +54,7 @@ const ProductCard = ({}) => {
         dispatch(
             addProduct(product, quantityValue),
             setAddToCartNotification(true),
-            window.scrollTo({top: 0, left: 0, behavior: 'smooth'}),
+            // window.scrollTo({top: 0, left: 0, behavior: 'smooth'}),
             setIsLoading(false)
         );
         // history.push('/cart')
@@ -110,14 +110,15 @@ const ProductCard = ({}) => {
     }
 
     const [addToCartNotification, setAddToCartNotification] = useState(false);
-    useEffect(() => {
-        const timeId = setTimeout(() => {
-            setAddToCartNotification(false)
-        }, 4380)        
-        return () => {
-            clearTimeout(timeId)
-        }
-    }, [addToCartNotification]);
+    
+    // useEffect(() => {
+    //     const timeId = setTimeout(() => {
+    //         setAddToCartNotification(false)
+    //     }, 5000)        
+    //     return () => {
+    //         clearTimeout(timeId)
+    //     }
+    // }, [addToCartNotification]);
 
     if(!productThumbnail || !productName || typeof productPrice === 'undefined'){
         return null;
@@ -125,14 +126,11 @@ const ProductCard = ({}) => {
 
     return(
         <div className="productCard">
-            {/* how do i have a stack of this when add button is click multiple times? */}
-                <Notification 
-                    activeStatus= {addToCartNotification}
-                    setActiveStatus = {setAddToCartNotification}
-                    text= { productName + " (" + (product.size) + ") " + t("has been added to your cart")}
-                    iconName = {<FcCheckmark />}
-                />
-            
+            <CartDrawer 
+                activeStatus= {addToCartNotification}
+                setActiveStatus= {setAddToCartNotification}
+            />
+
             <div className="row-main-cotainer">
                 <div className="col box-left">
                     <ProductImageSlider images={downloadUrls}/>

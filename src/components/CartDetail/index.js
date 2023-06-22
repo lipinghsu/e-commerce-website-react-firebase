@@ -16,6 +16,7 @@ const mapState = createStructuredSelector({
     cartItems: selectCartItems,
     subtotal: selectCartTotal
 });
+
 const addZeroes = num => Number(num).toFixed(Math.max(num.split('.')[1]?.length, 2) || 2);
 
 const CartDetail = ({}) =>{

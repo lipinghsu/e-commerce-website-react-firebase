@@ -81,7 +81,7 @@ const SignIn = props => {
     }
     
     const configAuthWrapper = {
-        headline: t("Log in")
+        headline: t("Log In")
     };
 
 
@@ -157,7 +157,7 @@ const SignIn = props => {
                         <Link to="/recovery">{t("Forgot your password?")}</Link>
                     </div>
                     <Button type="submit" className={isLoading ? "btn btn-submit isLoading" : "btn btn-submit"} disabled={isLoading} isLoading={isLoading}>
-                        {t("Log in")}
+                        {t("Log In")}
                     </Button>
 
                     <div className="cancel">

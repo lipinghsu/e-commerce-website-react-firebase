@@ -32,5 +32,8 @@
         max-width: 80.0rem;
     }
     .btn-submit:hover{
-        scale: 1.01;
+        background-color: white;
+        color:black;
+        transition: 0.25s ease-out;
+        border: 0.5px solid rgba(123, 123, 123, 0.85);
     }

@@ -1,0 +1,56 @@
+.notification{
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    right: -400px; /* Adjust the initial position as per your design */
+    // right: 0;
+    width: 300px; /* Adjust the width as per your design */
+    padding: 20px;
+    background-color: rgba(0,0,0,1);
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    height: 100%;
+
+    color:white;
+    font-weight: 500;
+
+    .drawer-wrapper{
+        .drawer-header{
+            height: 70px;
+            .drawer-title{
+
+            }
+
+            .close-button{
+                position: absolute;
+                top: 10px; /* Adjust the top position as needed */
+                right: 10px; /* Adjust the right position as needed */
+                cursor: pointer;
+                svg{
+                    vertical-align: middle;
+                }
+            }
+            
+        }
+        .drawer-item{
+            .product-image-container{
+                width: 58px;
+                height: 58px;
+                
+                .productImage{
+                    border-radius: 15%;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            
+        }
+    }
+    
+}
+.notification.active{
+    // transition: 0.35s top, 0.75s opacity ease-in-out;
+    // opacity: 1;
+    right: 0;
+
+}

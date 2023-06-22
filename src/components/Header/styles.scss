@@ -196,7 +196,7 @@
 
     .sidebar.active { 
         left: 0;
-        transition: 0.45s left ease-out;
+        transition: left 0.3s ease-in-out;
         .sidebar-items{
             .nav-item{
                 a{
@@ -213,7 +213,7 @@
     .sidebar {       
         left: calc(-100% - 300px);
         // opacity: 0;
-        transition: 0.69s left ease-in-out;
+        transition: left 0.3s ease-in-out;
         
         // border: 1px solid black;
         min-width: 29.24rem;
@@ -324,5 +324,5 @@
 }
 .header.hidden{
     top: -80px;
-    transition: all .25s ease-out;
+    transition: left 0.3s ease-in-out;
 }
