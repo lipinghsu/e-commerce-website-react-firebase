@@ -1,17 +1,21 @@
 import React from 'react'
 import { IoCloseOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import './styles.scss'
 import { createStructuredSelector } from "reselect";
 import { selectCartItems, selectCartTotal } from "../../redux/Cart/cart.selectors";
 import Item from "../CartDetail/Item";
+import Button from "../forms/Button";
 import { useTranslation } from 'react-i18next';
+import { Link } from "react-router-dom";
 const mapCartState = createStructuredSelector({
     cartItems: selectCartItems,
     subtotal: selectCartTotal
 });
 
 const CartDrawer = ({activeStatus, setActiveStatus, text, iconName}) => {
+    const history = useHistory();
     const { t } = useTranslation(["cartDrawer"]);
     const { cartItems, subtotal } = useSelector(mapCartState);
     const addZeroes = num => Number(num).toFixed(Math.max(num.split('.')[1]?.length, 2) || 2)
@@ -41,13 +45,29 @@ const CartDrawer = ({activeStatus, setActiveStatus, text, iconName}) => {
                                     <div className='sizeDiv'>{t("Size")}: {item.size}</div>
                                     <div className='sizeDiv'>{t("Quantity")}: {item.quantity}</div>
                                 </div>
-
-
                             </div>
                         )
                     })}
                 
                     
+                </div>
+                <div className="drawer-tail">
+                    <div className='subtotal'>
+                        {/* right aline this span */}
+                            {t("Subtotal")}: <span>${addZeroes(subtotal.toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',')} USD</span>
+                    </div>
+
+                    <div className="check-out-button">
+                        <Button onClick={() => history.push('/payment')} className="btn btn-submit">
+                            {t("Check Out")}
+                        </Button>
+                    </div>
+
+                    <div className="view-cart-button">
+                        <Button onClick={() => history.push('/cart')} className="btn btn-submit">
+                            {t("View Cart")}
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>

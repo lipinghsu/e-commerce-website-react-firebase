@@ -21,8 +21,8 @@ const Item = ({setIsLoading, ...product}) => {
     }
 
     const handleUpdateCart = (product, quantityValue) =>{
-        console.log(product);
-        console.log(quantityValue);
+        // console.log(product);
+        // console.log(quantityValue);
         dispatch(
             updateCart(product, quantityValue),
             setIsLoading(false)
