@@ -8,13 +8,10 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 const Item = ({setIsLoading, ...product}) => {
-    
     const dispatch = useDispatch();
     const addZeroes = num => Number(num).toFixed(Math.max(num.split('.')[1]?.length, 2) || 2)
     const { t } = useTranslation(["common"]);
     const { productName, productThumbnail, productPrice, quantity, size, documentID } = product;
-    
-
     const [quantityValue, setQuantityValue] = useState(quantity);
     
     const handleRemoveCartItem = (product) => {

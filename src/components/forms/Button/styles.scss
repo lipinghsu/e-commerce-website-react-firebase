@@ -17,20 +17,24 @@
         padding:0;
         border: 1rem;
         margin: 0.5rem auto 0.5rem auto;
-
+        transition: 0.25s ease-out;
         cursor: pointer;
     }
+    
     .btn:hover{
         // transition: 0.25s ease-out;
     }
+
     .btn.btn-submit.isLoading{
         background-color: rgba(23, 23, 23, 0.25);
         cursor: wait;
     }
+
     .btn-submit{
         background-color: black;
         max-width: 80.0rem;
     }
+
     .btn-submit:hover{
         background-color: white;
         color:black;
