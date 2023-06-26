@@ -57,7 +57,24 @@
             }
         }
         .drawer-tail{
-            
+            .subtotal{
+                margin-bottom: 20px;
+            }
+            .check-out-button{
+                .btn{
+                    background-color: white;
+                    color: black
+                }
+                .btn:hover{
+                    transition: none;
+                    scale: 1.01;
+                }
+            }
+            .view-cart-button{
+                .btn:hover{
+                    text-decoration: underline;
+                }
+            }
         }
     }
     

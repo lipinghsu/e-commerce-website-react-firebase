@@ -64,7 +64,7 @@ const CartDrawer = ({activeStatus, setActiveStatus, text, iconName}) => {
                     </div>
 
                     <div className="view-cart-button">
-                        <Button onClick={() => history.push('/cart')} className="btn btn-submit">
+                        <Button onClick={() => history.push('/cart')} className="btn">
                             {t("View Cart")}
                         </Button>
                     </div>
