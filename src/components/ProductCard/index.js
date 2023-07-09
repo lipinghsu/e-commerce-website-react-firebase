@@ -120,6 +120,19 @@ const ProductCard = ({}) => {
     }, [addToCartNotification]);
 
 
+    // mobile scroll enable/disable functions
+    const handleScroll = (event) => {
+        event.preventDefault();
+    };
+    
+    const disableMobileScroll = () => {
+        document.addEventListener('touchmove', handleScroll, { passive: false });
+    };
+    
+    const enableMobileScroll = () => {
+        document.removeEventListener('touchmove', handleScroll);
+    };
+
 
     useEffect(() => {
         const handleClickOutsideDiv = (e) =>{
@@ -131,10 +144,12 @@ const ProductCard = ({}) => {
         if(addToCartNotification){
             document.addEventListener("click", handleClickOutsideDiv, true);
             document.body.style.overflowY = 'hidden';
+            disableMobileScroll();
         }
         return () => {
             document.removeEventListener('click', handleClickOutsideDiv);
             document.body.style.overflowY = 'visible';
+            enableMobileScroll();
         };
     }, [addToCartNotification])
     

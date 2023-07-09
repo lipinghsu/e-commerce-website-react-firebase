@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { IoCloseOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -9,6 +9,9 @@ import Item from "../CartDetail/Item";
 import Button from "../forms/Button";
 import { useTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
+import {MdOutlineLocalShipping} from "react-icons/md";
+import {AiFillCheckCircle} from "react-icons/ai";
+
 const mapCartState = createStructuredSelector({
     cartItems: selectCartItems,
     subtotal: selectCartTotal
@@ -16,13 +19,23 @@ const mapCartState = createStructuredSelector({
 
 // to do:
 // add quantity and delete buttons
-// make draer-body scrollable when height exceed it's limit
 
 const CartDrawer = ({activeStatus, setActiveStatus, text, iconName}) => {
     const history = useHistory();
     const { t } = useTranslation(["cartDrawer"]);
     const { cartItems, subtotal } = useSelector(mapCartState);
     const addZeroes = num => Number(num).toFixed(Math.max(num.split('.')[1]?.length, 2) || 2);
+
+    const [progress, setProgress] = useState(0);
+    const [remainder, setRemainder] = useState(0);
+
+    useEffect(() => {
+        // Calculate progress based on subtotal
+        const calculatedProgress = subtotal / 200;
+        const calculatedRemainder = 200 - subtotal;
+        setProgress(calculatedProgress);
+        setRemainder(calculatedRemainder);
+    }, [subtotal]);
 
     const handleRedirect = () =>{
         setTimeout(() => {
@@ -39,7 +52,30 @@ const CartDrawer = ({activeStatus, setActiveStatus, text, iconName}) => {
                         <IoCloseOutline size={28}/>
                     </div>
                     <div className="drawer-title">
-                        Shopping Cart
+                        SHOPPING CART
+                    </div>
+                </div>
+
+                <div className="drawer-progress">
+                    <div className='progress-title-image'>
+                        <div className='icon'>
+                            {remainder > 0  ?
+                            <MdOutlineLocalShipping size={16}/>
+                            : <AiFillCheckCircle size={26}/>
+                            }
+                        </div>
+                        <div className='text'>
+                            Free Shipping
+                        </div>
+                    </div>
+                    <div className='progress-bar'>
+                        <div className="progress" style={{ width: `${progress * 100}%` }}></div>
+                    </div>
+                    <div className='progress-description'>
+                        {remainder > 0 ? 
+                        "You are $" + addZeroes(remainder.toString()) + " away from FREE SHIPPING"
+                        : "You've unlocked free shipping!"}
+                        
                     </div>
                 </div>
                 <div className="drawer-body">

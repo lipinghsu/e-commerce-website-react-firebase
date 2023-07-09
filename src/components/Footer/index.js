@@ -19,7 +19,9 @@ const Footer = props => {
         i18n.changeLanguage(event.target.value);
         i18next.changeLanguage(event.target.value);
 
-        window.location.reload();
+        setTimeout(() => {
+            window.location.reload();
+        }, 100);
     }
 
     // default lanauge seeting

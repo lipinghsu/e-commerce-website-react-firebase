@@ -16,17 +16,16 @@
     color:white;
     font-weight: 500;
     .drawer-wrapper{
+        //this moves the div drawer-tail to the bottom
+        display: flex;
+        flex-direction: column;
         height: 100%;
-
-        // this moves drawer-tail to the bottom of this div
-        display: grid;
-        grid-template-rows: auto 1fr auto;
         
         .drawer-header{
             border-top-left-radius: 16px;
             border-top-right-radius: 16px;
             background-color: black;
-            height: 64px;
+            min-height: 64px;
 
             display: flex;
             align-items: center;
@@ -46,18 +45,67 @@
             }
             
         }
+
+        .drawer-progress{
+            height: 76px;
+            color: black;
+            margin: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .progress-title-image{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                .icon{
+                    background-color: lightgray;
+                    height: 24px;
+                    width: 24px;
+                    border-radius: 50%;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .text{
+                    margin: 4px 0;
+                    font-size: small;
+
+                }
+            }
+            .progress-bar {
+                margin: 4px 0;
+                width: 100%;
+                height: 8px;
+                background-color: lightgray;
+                border-radius: 10px;
+                overflow: hidden;
+                
+                .progress {
+                    height: 100%;
+                    background-color: black;
+                    transition: width 0.3s ease-in-out;
+                }
+            }
+            .progress-description{
+                font-size: medium;
+            }
+        }
+        
         .drawer-body{
             padding: 0 20px;
             background-color: white;
             color: black;
-            border-bottom: 1px solid darkgray;
+            border-top: 1px solid lightgray;
+            max-height: 100%;
+            overflow: auto;
 
             .drawer-body-wrapper:not(:last-child) {
-                // border-bottom: 1px solid lightgray;
+                border-bottom: 1px solid lightgray;
             }
             .drawer-body-wrapper{
-                border-bottom: 1px solid lightgray;
-                // border: 1px solid pink;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -90,6 +138,11 @@
             }
         }
         .drawer-tail{
+            //this moves the div to the bottom
+            margin-top: auto;
+
+            border-top: 1px solid lightgray;
+            
             padding: 20px;
             color: black;
             
@@ -111,13 +164,16 @@
             .view-cart-button{
                 scale: 0.95;
                 .btn{
-                    background-color: white;
+                    background-color: transparent;
                     color: darkgray;
+                    transition:none;
                 }
                 
 
                 .btn:hover{
                     text-decoration: underline;
+                    color: black;
+                    transition:none;
                 }
                 .btn:active{
                     box-shadow: none;
