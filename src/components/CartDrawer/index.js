@@ -54,7 +54,8 @@ const CartDrawer = ({activeStatus, setActiveStatus, text, iconName}) => {
                 <div className="drawer-tail">
                     <div className='subtotal'>
                         {/* right aline this span */}
-                            {t("Subtotal")}: <span>${addZeroes(subtotal.toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',')} USD</span>
+                            {t("Subtotal")}: 
+                            <span className='price'> ${addZeroes(subtotal.toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',')} USD</span>
                     </div>
 
                     <div className="check-out-button">

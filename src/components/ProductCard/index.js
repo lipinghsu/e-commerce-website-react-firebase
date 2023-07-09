@@ -110,22 +110,21 @@ const ProductCard = ({}) => {
     }
 
     const [addToCartNotification, setAddToCartNotification] = useState(false);
-    
-    // useEffect(() => {
-    //     const timeId = setTimeout(() => {
-    //         setAddToCartNotification(false)
-    //     }, 5000)        
-    //     return () => {
-    //         clearTimeout(timeId)
-    //     }
-    // }, [addToCartNotification]);
+    const [className, setClassName] = useState('productCard');
+    useEffect(() => {
+        if (addToCartNotification) {
+        setClassName('productCard Dim');
+        } else {
+        setClassName('productCard');
+        }
+    }, [addToCartNotification]);
 
     if(!productThumbnail || !productName || typeof productPrice === 'undefined'){
         return null;
     }
 
     return(
-        <div className="productCard">
+        <div className={className}>
             <CartDrawer 
                 activeStatus= {addToCartNotification}
                 setActiveStatus= {setAddToCartNotification}

@@ -1,4 +1,10 @@
+.productCardContainer{
+    
+}
 .productCard{
+    // to avoid image overlay gap
+    min-height: 100vh;
+
     .add-to-cart-notification{
         // background-color: pink;
         // border: 1px solid lightgray;
@@ -296,5 +302,28 @@
         }
     }
     
+    &.Dim {
+        @extend %productCardDim;
+    }
 }
 
+// overlay when .productCard.Dim is enabled
+%productCardDim {
+    position: relative;
+    
+    &::before {
+        overflow: hidden;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 10;
+    }
+}
+
+.productCard.Dim {
+    @extend %productCardDim;
+}

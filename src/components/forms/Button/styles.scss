@@ -39,5 +39,12 @@
         background-color: white;
         color:black;
         transition: 0.25s ease-out;
-        border: 0.5px solid rgba(123, 123, 123, 0.85);
+        border: 1px solid black;
+    }
+
+    .btn:active {
+        // background-color: #3e8e41;
+        transition: none;
+        box-shadow: 0 1px #777777;
+        transform: translateY(1px);
     }

@@ -29,7 +29,6 @@ const initialAddressState = {
 
 const mapState = createStructuredSelector({
     total: selectCartTotal,
-    
     itemCount: selectCartItemsCount,
     cartItems: selectCartItems,
 });

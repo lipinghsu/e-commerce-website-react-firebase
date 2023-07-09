@@ -3,7 +3,7 @@ import ProductCard from '../../components/ProductCard';
 
 const ProductDetails = ({}) => {
     return (
-        <div>
+        <div className='productCardContainer'>
             <ProductCard />
         </div>
     );
