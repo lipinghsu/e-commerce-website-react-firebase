@@ -18,8 +18,11 @@ const Footer = props => {
     const languageChange = (event) =>{
         i18n.changeLanguage(event.target.value);
         i18next.changeLanguage(event.target.value);
+
+        window.location.reload();
     }
 
+    // default lanauge seeting
     useEffect(() =>{
         if(localStorage.getItem("i18nextLng")?.length > 2){
             i18next.changeLanguage("en");

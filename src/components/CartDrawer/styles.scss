@@ -5,6 +5,7 @@
     top: 0;
     right: -580px;
     width: 512px;
+    max-width: calc(100vw - 24px);
     border-radius: 16px;
     
     background-color: white;
@@ -15,7 +16,11 @@
     color:white;
     font-weight: 500;
     .drawer-wrapper{
-        
+        height: 100%;
+
+        // this moves drawer-tail to the bottom of this div
+        display: grid;
+        grid-template-rows: auto 1fr auto;
         
         .drawer-header{
             border-top-left-radius: 16px;
@@ -42,16 +47,22 @@
             
         }
         .drawer-body{
-            padding: 20px;
+            padding: 0 20px;
             background-color: white;
             color: black;
             border-bottom: 1px solid darkgray;
+
+            .drawer-body-wrapper:not(:last-child) {
+                // border-bottom: 1px solid lightgray;
+            }
             .drawer-body-wrapper{
+                border-bottom: 1px solid lightgray;
+                // border: 1px solid pink;
                 display: flex;
                 align-items: center;
                 justify-content: center;
 
-                border-bottom: 1px solid lightgray;
+                
                 height: 96px;
                 display: flex;
                 font-size: 14px;
@@ -81,6 +92,7 @@
         .drawer-tail{
             padding: 20px;
             color: black;
+            
             .subtotal{
                 margin-bottom: 20px;
                 text-align: right;

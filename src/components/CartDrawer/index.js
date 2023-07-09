@@ -14,11 +14,23 @@ const mapCartState = createStructuredSelector({
     subtotal: selectCartTotal
 });
 
+// to do:
+// add quantity and delete buttons
+// make draer-body scrollable when height exceed it's limit
+
 const CartDrawer = ({activeStatus, setActiveStatus, text, iconName}) => {
     const history = useHistory();
     const { t } = useTranslation(["cartDrawer"]);
     const { cartItems, subtotal } = useSelector(mapCartState);
-    const addZeroes = num => Number(num).toFixed(Math.max(num.split('.')[1]?.length, 2) || 2)
+    const addZeroes = num => Number(num).toFixed(Math.max(num.split('.')[1]?.length, 2) || 2);
+
+    const handleRedirect = () =>{
+        setTimeout(() => {
+            window.location.reload();
+        }, 100);
+        
+    }
+    
     return(
         <div className={activeStatus ? "notification" + " active" : "notification"}>
             <div className="drawer-wrapper">
@@ -35,7 +47,10 @@ const CartDrawer = ({activeStatus, setActiveStatus, text, iconName}) => {
                         return (
                             <div key ={pos} className="drawer-body-wrapper">
                                 <div className='product-image-container'>
-                                    <img className ="productImage" src ={item.productThumbnail} />
+                                    {/* <img className ="productImage" src ={item.productThumbnail} /> */}
+                                    <Link to={`/product/${item.documentID}`} >
+                                        <img src={item.productThumbnail} alt={item.productName} className="productImage" onClick={() => handleRedirect()}/>
+                                    </Link>
                                 </div>
                                 <div className='product-details'>
                                     <div className='product-name'>{item.productName}</div>

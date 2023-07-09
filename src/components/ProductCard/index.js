@@ -113,12 +113,31 @@ const ProductCard = ({}) => {
     const [className, setClassName] = useState('productCard');
     useEffect(() => {
         if (addToCartNotification) {
-        setClassName('productCard Dim');
+            setClassName('productCard Dim');
         } else {
-        setClassName('productCard');
+            setClassName('productCard');
         }
     }, [addToCartNotification]);
 
+
+
+    useEffect(() => {
+        const handleClickOutsideDiv = (e) =>{
+            if (!e.target.closest('.notification')) { // check if element or parents has class
+                setClassName('productCard');
+                setAddToCartNotification(false);
+            }
+        }
+        if(addToCartNotification){
+            document.addEventListener("click", handleClickOutsideDiv, true);
+            document.body.style.overflowY = 'hidden';
+        }
+        return () => {
+            document.removeEventListener('click', handleClickOutsideDiv);
+            document.body.style.overflowY = 'visible';
+        };
+    }, [addToCartNotification])
+    
     if(!productThumbnail || !productName || typeof productPrice === 'undefined'){
         return null;
     }
