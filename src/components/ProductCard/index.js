@@ -22,7 +22,6 @@ const mapState = state => ({
     productLoaded: state.productsData.product.productLoaded
 });
 
-
 const addZeroes = num => Number(num).toFixed(Math.max(num.split('.')[1]?.length, 2) || 2)
 
 const ProductCard = ({}) => {
@@ -35,11 +34,12 @@ const ProductCard = ({}) => {
     const { productID } = useParams();
     const { product } = useSelector(mapState);
     const { productLoaded } = useSelector(mapState);
-    const { productThumbnail, productName, productPrice, productDescription, downloadUrls} = product;
+    const { productThumbnail, productName, productPrice, productDescription, downloadUrls, quantity} = product;
 
     const [showDescription, setShowDescription] = useState(true);
     const [selectedImg, setSelectedImg] = useState(null);
     const [quantityValue, setQuantityValue] = useState(1);
+    const [productQuantityValue, setProductQuantityValue] = useState(quantity);
     const [isLoading, setIsLoading] = useState(false);
     
     const configAddToCartButton = {
@@ -162,6 +162,7 @@ const ProductCard = ({}) => {
             <CartDrawer 
                 activeStatus= {addToCartNotification}
                 setActiveStatus= {setAddToCartNotification}
+                product= {product}
             />
 
             <div className="row-main-cotainer">

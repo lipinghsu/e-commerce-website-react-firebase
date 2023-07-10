@@ -21,8 +21,6 @@ const Item = ({setIsLoading, ...product}) => {
     }
 
     const handleUpdateCart = (product, quantityValue) =>{
-        // console.log(product);
-        // console.log(quantityValue);
         dispatch(
             updateCart(product, quantityValue),
             setIsLoading(false)
@@ -31,12 +29,10 @@ const Item = ({setIsLoading, ...product}) => {
 
     useEffect(() => {
         // to do:
-        // disable check out button and formInput
-        // show loading animation
         // if quantityValue > stockValue -> show error message
         let timerId = setTimeout(() => {
             handleUpdateCart(product, quantityValue)
-        }, 380);
+        }, 300);
         return () => {
             clearTimeout(timerId)
         };

@@ -24,7 +24,7 @@ const Footer = props => {
         }, 100);
     }
 
-    // default lanauge seeting
+    // default lanauge seting
     useEffect(() =>{
         if(localStorage.getItem("i18nextLng")?.length > 2){
             i18next.changeLanguage("en");

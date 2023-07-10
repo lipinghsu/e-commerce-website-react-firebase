@@ -250,31 +250,28 @@
                     margin:16px 0 0 0;
                     .accordion{
                         .col-title-button{
-                            // background-color: rgba(238, 238, 238, 1);
                             cursor: pointer;
                             display: flex;
                             align-items: center;
                             height: 38px;
                             // border: 1px solid black;
-                            border-radius: 8.5px 8.5px 8.5px 8.5px;
+                            border-radius: 8.5px;
                             h3{
                                 font-size: 1.75rem;
                                 font-weight: 600;
-                                width: 100%;
-                                padding-left: 7px;
+                                flex-grow: 1;
+
                             }
                             .react-icon-arrow{
                                 padding: 5px;
-                                -webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);
-                                -o-transform: rotate(90deg);transform: rotate(90deg);
+                                transform: rotate(90deg);
                                 transition: 0.25s ease-out;
                             }
                         }
                         .col-title-button.hidden{
                             background-color: transparent;
                             .react-icon-arrow{
-                                -webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);
-                                -o-transform: rotate(0deg);transform: rotate(0deg);
+                                transform: rotate(0deg);
                                 transition: 0.25s ease-out;
                             }
                         }

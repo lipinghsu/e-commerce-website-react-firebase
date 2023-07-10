@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import { useDispatch } from "react-redux";
 import { IoCloseOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -11,23 +12,45 @@ import { useTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
 import {MdOutlineLocalShipping} from "react-icons/md";
 import {AiFillCheckCircle} from "react-icons/ai";
+import DrawerItem from "./DrawerItem";
+import { GoTrashcan } from "react-icons/go";
+import QuantityButton from "../ProductCard/QuantityButton";
+import { removeCartItem, addProduct, reduceCartItem, updateCart } from "../../redux/Cart/cart.actions";
 
 const mapCartState = createStructuredSelector({
     cartItems: selectCartItems,
     subtotal: selectCartTotal
 });
 
+const mapState = state => ({
+    product: state.productsData.product,
+    productLoaded: state.productsData.product.productLoaded
+});
+
 // to do:
 // add quantity and delete buttons
+// color variations
 
-const CartDrawer = ({activeStatus, setActiveStatus, text, iconName}) => {
+
+
+const CartDrawer = ({activeStatus, setActiveStatus, product}) => {
+    const [isLoading, setIsLoading] = useState(false);
     const history = useHistory();
+    const dispatch = useDispatch();
     const { t } = useTranslation(["cartDrawer"]);
     const { cartItems, subtotal } = useSelector(mapCartState);
+    
     const addZeroes = num => Number(num).toFixed(Math.max(num.split('.')[1]?.length, 2) || 2);
 
     const [progress, setProgress] = useState(0);
     const [remainder, setRemainder] = useState(0);
+    const [quantityValue, setQuantityValue] = useState(product.quantity);
+
+    const handleRemoveCartItem = (product) => {
+        dispatch(
+            removeCartItem(product)
+        );
+    }
 
     useEffect(() => {
         // Calculate progress based on subtotal
@@ -37,13 +60,7 @@ const CartDrawer = ({activeStatus, setActiveStatus, text, iconName}) => {
         setRemainder(calculatedRemainder);
     }, [subtotal]);
 
-    const handleRedirect = () =>{
-        setTimeout(() => {
-            window.location.reload();
-        }, 100);
-        
-    }
-    
+
     return(
         <div className={activeStatus ? "notification" + " active" : "notification"}>
             <div className="drawer-wrapper">
@@ -82,20 +99,7 @@ const CartDrawer = ({activeStatus, setActiveStatus, text, iconName}) => {
                     {cartItems.map((item, pos) =>{
                         return (
                             <div key ={pos} className="drawer-body-wrapper">
-                                <div className='product-image-container'>
-                                    {/* <img className ="productImage" src ={item.productThumbnail} /> */}
-                                    <Link to={`/product/${item.documentID}`} >
-                                        <img src={item.productThumbnail} alt={item.productName} className="productImage" onClick={() => handleRedirect()}/>
-                                    </Link>
-                                </div>
-                                <div className='product-details'>
-                                    <div className='product-name'>{item.productName}</div>
-                                    <div className='product-price'>
-                                        ${addZeroes(parseFloat((item.productPrice * item.quantity).toFixed(2)).toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                                    </div>
-                                    <div className='sizeDiv'>{t("Size")}: {item.size}</div>
-                                    <div className='sizeDiv'>{t("Quantity")}: {item.quantity}</div>
-                                </div>
+                                <DrawerItem {...item } setIsLoading={setIsLoading}/>
                             </div>
                         )
                     })}
