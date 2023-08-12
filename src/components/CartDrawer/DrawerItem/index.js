@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { removeCartItem, addProduct, reduceCartItem, updateCart } from "../../../redux/Cart/cart.actions";
 
-import { GoTrashcan } from "react-icons/go";
+import { BsTrash } from "react-icons/bs";
 import QuantityButton from "../../ProductCard/QuantityButton";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import './styles.scss';
 
 const DrawerItem = ({setIsLoading, ...product}) => {
     const dispatch = useDispatch();
@@ -58,7 +57,7 @@ const DrawerItem = ({setIsLoading, ...product}) => {
                     <div className='product-name'>{productName}</div>
                     <div className="container-remove-button"  onClick={() => handleRemoveCartItem(product)}>
                         <span className="remove-btn">
-                            <GoTrashcan className="buttonImage" color="red"/>
+                            <BsTrash className="buttonImage" color="red"/>
                         </span>
                     </div>
                 </div>
@@ -66,13 +65,12 @@ const DrawerItem = ({setIsLoading, ...product}) => {
                     <div className='sizeDiv'>{t("Size")}: {size}</div>
                 </div>
                 <div className='third-row'>
-                    <QuantityButton setQuantityValue={setQuantityValue} quantityValue={quantityValue} setIsLoading={null}/>
+                    <QuantityButton setQuantityValue={setQuantityValue} quantityValue={quantityValue} setIsLoading={setIsLoading}/>
                     <div className='product-price'>
                         ${addZeroes(parseFloat((productPrice * quantity).toFixed(2)).toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                     </div>
                 </div>
 
-                
             </div>
         </div>
     );

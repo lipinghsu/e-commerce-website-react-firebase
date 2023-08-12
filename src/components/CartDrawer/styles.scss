@@ -152,17 +152,24 @@
                                 border-radius: 50%;
                                 
                                 display: inline-flex;
+                                
                                 justify-content: center;
                                 align-items: center;
             
                                 transition: 0.25s ease-out;
-                                svg{
-                                    transition: 0.25s ease-out;
+                                
+                                .remove-btn{
+                                    svg{
+                                        transform: translateY(1px);
+                                        transition: 0.25s ease-out;
+                                    }
                                 }
+                                
                             }
                             .container-remove-button:hover{
                                 background-color: red;
                                 transition: 0.25s ease-out;
+
                                 svg{
                                     color: white;
                                     transition: 0.25s ease-out;

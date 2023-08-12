@@ -54,66 +54,70 @@ const CartDetail = ({}) =>{
     return (
         <div className="checkout">
             <div className="wrap">
-                <div className="cart">
-                    {cartItems.length > 0 ? (
-                    <div className="row-main-container">
-                        <div className="box-left">
-                            <h1>{t("Shopping Cart")}</h1>
-                            {cartItems.map((item, pos) =>{
-                                return (
-                                    <div className="wwww" key ={pos}>
-                                        <Item {...item } setIsLoading={setIsLoading}  />
-                                    </div>
-                                )
-                            })}
-                        </div>
+                
+                {cartItems.length > 0 ? (
+                    <div className="cart">
+                        <div className="row-main-container">
+                            <div className="box-left">
+                                <h1>{t("Shopping Cart")}</h1>
+                                {cartItems.map((item, pos) =>{
+                                    return (
+                                        <div className="wwww" key ={pos}>
+                                            <Item {...item } setIsLoading={setIsLoading}  />
+                                        </div>
+                                    )
+                                })}
+                            </div>
 
-                        <div className="box-right" ref={boxRightRef}>
-                            <div className="wrapper-content" ref={movingDivRef}
-                                style={ 
-                                    stop ? {
-                                        position: 'sticky',
-                                        top: (boxRightRef.current?.offsetHeight + boxRightRef.current?.offsetTop - movingDivRef.current?.offsetHeight)
-                                    } :{
-                                        position: 'sticky',
-                                        top: 87  //x
+                            <div className="box-right" ref={boxRightRef}>
+                                <div className="wrapper-content" ref={movingDivRef}
+                                    style={ 
+                                        stop ? {
+                                            position: 'sticky',
+                                            top: (boxRightRef.current?.offsetHeight + boxRightRef.current?.offsetTop - movingDivRef.current?.offsetHeight)
+                                        } :{
+                                            position: 'sticky',
+                                            top: 87  //x
+                                        }
                                     }
-                                }
-                            >
-                                <div className="subtotal">
-                                    <h3>{t("Subtotal")}:<span>${addZeroes(subtotal.toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',')} USD</span></h3>
-                                    <h5>{t("Shipping & taxes are calculated at checkout.")}</h5>
-                                </div>
-
-                                <div className="bottom-btn">
-                                    <div className="checkout-button">
-                                        <Button onClick={() => history.push('/payment')} 
-                                        className={isLoading ? "btn btn-submit isLoading" : "btn btn-submit"} disabled={isLoading} isLoading={isLoading}>
-                                            {t("Check Out")}
-                                        </Button>
+                                >
+                                    <div className="subtotal">
+                                        <h3>{t("Subtotal")}:<span>${addZeroes(subtotal.toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',')} USD</span></h3>
+                                        <h5>{t("Shipping & taxes are calculated at checkout.")}</h5>
                                     </div>
-                                    <div className="continue-shopping">
-                                        <Link onClick={() => history.goBack()}>
-                                            {t("Continue Shopping")}
-                                        </Link>
+
+                                    <div className="bottom-btn">
+                                        <div className="checkout-button">
+                                            <Button onClick={() => history.push('/payment')} 
+                                            className={isLoading ? "btn btn-submit isLoading" : "btn btn-submit"} disabled={isLoading} isLoading={isLoading}>
+                                                {t("Check Out")}
+                                            </Button>
+                                        </div>
+                                        <div className="continue-shopping">
+                                            <Link onClick={() => history.goBack()}>
+                                                {t("Continue Shopping")}
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                ) : (
-                    <div className="empty-cart">
-                        <div className="empty-message">
-                            {EmptyCartMessage}
+                    ) : (
+                        <div className="cart empty">
+                            <div className="empty-cart">
+                                <div className="empty-message">
+                                    {EmptyCartMessage}
+                                </div>
+                                <div className="continue-shopping">
+                                    <Button onClick={() => history.goBack()} className="btn btn-submit">
+                                        {t("Continue Shopping")}
+                                    </Button>
+                                </div>
+                            </div>
                         </div>
-                        <div className="continue-shopping">
-                            <Button onClick={() => history.goBack()} className="btn btn-submit">
-                                {t("Continue Shopping")}
-                            </Button>
-                        </div>
-                    </div>
-                )}
-                </div>
+                    )}
+                
             </div>
         </div>
     );

@@ -15,10 +15,23 @@
         }
         // border: 1px solid black;
 
+        .cart.empty{
+            // if cart is empty, do:
+            display: flex;
+            height: 75vh;
+        }
 
         .cart{
+            /* Vertically center the content */
+            align-items: center;
+          
+            /* Horizontally center the content */
+            justify-content: center;
+
+            
+            
             .empty-cart{
-                padding-top: 28rem;
+                
                 text-align: center;
 
                 .empty-message{
@@ -26,7 +39,7 @@
                 }
                 .continue-shopping{
                     max-width: 300px;
-                    padding-top: 20px;
+                    padding-top: 16px;
                     margin: 0px auto;
                 }
             }

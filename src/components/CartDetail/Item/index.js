@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { removeCartItem, addProduct, reduceCartItem, updateCart } from "../../../redux/Cart/cart.actions";
 
-import { GoTrashcan } from "react-icons/go";
+import { BsTrash } from "react-icons/bs";
 import QuantityButton from "../../ProductCard/QuantityButton";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -63,7 +63,7 @@ const Item = ({setIsLoading, ...product}) => {
                 {/* onclick -> show modal -> confirm delete? -> delete*/}
                 <div className="container-remove-button"  onClick={() => handleRemoveCartItem(product)}>
                     <span className="remove-btn">
-                        <GoTrashcan className="buttonImage" color="red"/>
+                        <BsTrash className="buttonImage" color="red"/>
                     </span>
                 </div>
             </div>

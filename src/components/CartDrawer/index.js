@@ -13,7 +13,6 @@ import { Link } from "react-router-dom";
 import {MdOutlineLocalShipping} from "react-icons/md";
 import {AiFillCheckCircle} from "react-icons/ai";
 import DrawerItem from "./DrawerItem";
-import { GoTrashcan } from "react-icons/go";
 import QuantityButton from "../ProductCard/QuantityButton";
 import { removeCartItem, addProduct, reduceCartItem, updateCart } from "../../redux/Cart/cart.actions";
 
@@ -95,6 +94,7 @@ const CartDrawer = ({activeStatus, setActiveStatus, product}) => {
                         
                     </div>
                 </div>
+                
                 <div className="drawer-body">
                     {cartItems.map((item, pos) =>{
                         return (
@@ -103,9 +103,8 @@ const CartDrawer = ({activeStatus, setActiveStatus, product}) => {
                             </div>
                         )
                     })}
-                
-                    
                 </div>
+
                 <div className="drawer-tail">
                     <div className='subtotal'>
                         {/* right aline this span */}
